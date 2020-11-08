@@ -1,0 +1,26 @@
+#lang sicp
+(define (print-point p)
+  (newline)
+  (display "(")
+  (display (x-point p))
+  (display ",")
+  (display (y-point p))
+  (display ")"))
+(define (start-segment x y)
+  (cons x y))
+(define (end-segment x y)
+  (cons x y))
+(define (x-point lis)
+  (car lis))
+(define (y-point lis)
+  (cdr lis))
+(define (make-segment a b)
+  (cons a b))
+(define (midpoint-segment lis)
+  (cons (/ (+ (caar lis) (cdar lis)) 2)
+        (/ (+ (cadr lis) (cddr lis)) 2)))
+(print-point
+ (midpoint-segment
+  (make-segment
+   (start-segment 53 5)
+   (end-segment 6 14))))
